@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -8012122478606315379
     second: Ground03_01_0
+  - first:
+      213: 6831820840348427897
+    second: Ground03_01_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -104,8 +107,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d809fb54e093fc090800000000000000
-      internalID: -8012122478606315379
+      spriteID: 97624169bd08fce50800000000000000
+      internalID: 6831820840348427897
       vertices: []
       indices: 
       edges: []

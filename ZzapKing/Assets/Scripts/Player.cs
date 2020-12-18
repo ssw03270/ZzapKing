@@ -23,10 +23,10 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
 
         direction = 0;
-        jumpSpeed = 5f;
+        jumpSpeed = 6f;
         moveSpeed = 3f;
         inputTime = 1.5f;
-        isJumped = false;
+        isJumped = true;
         isCharged = false;
     }
 
@@ -47,10 +47,10 @@ public class Player : MonoBehaviour
             isCharged = true;
             inputTime += Time.deltaTime;
         }
-        if (Input.GetKeyUp(KeyCode.Space))
+        if (Input.GetKeyUp(KeyCode.Space) && !isJumped)
         {
             animator.SetInteger("State", 0);
-            rigidbody2D.AddForce(new Vector2(direction * inputTime * 2, Mathf.Abs(direction) * inputTime * jumpSpeed), ForceMode2D.Impulse);
+            rigidbody2D.AddForce(new Vector2(direction * 9, inputTime * jumpSpeed), ForceMode2D.Impulse);
             inputTime = 1.5f;
             direction = 0;
             isJumped = true;
@@ -81,21 +81,28 @@ public class Player : MonoBehaviour
     }
     void Dire()
     {
-        if (Input.GetKey(KeyCode.RightArrow))
+        if (isCharged)
         {
-            direction = 1;
-        }else if (Input.GetKey(KeyCode.LeftArrow))
-        {
-            direction = -1;
+            if (Input.GetKey(KeyCode.RightArrow))
+            {
+                direction = 1;
+            }
+            else if (Input.GetKey(KeyCode.LeftArrow))
+            {
+                direction = -1;
+            }
         }
     }
 
     void CameraMove()
     {
-        if (!isJumped)
+        for(int i = -7; i < 1000; i += 14)
         {
-            Vector3 targetPosition = new Vector3(0, transform.position.y + 5, -10);
-            cameraPlayer.transform.position = Vector3.MoveTowards(cameraPlayer.transform.position, targetPosition, Time.deltaTime * 3);
+            if(transform.position.y < i)
+            {
+                cameraPlayer.transform.position = new Vector3(0, i - 7, -10);
+                break;
+            }
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -103,6 +110,13 @@ public class Player : MonoBehaviour
         if (collision.transform.name == "Tilemap")
         {
             isJumped = false;
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
+        if (collision.transform.name == "Tilemap")
+        {
+            isJumped = true;
         }
     }
 }

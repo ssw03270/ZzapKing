@@ -5,6 +5,9 @@ TextureImporter:
   - first:
       213: -3488848878183580736
     second: Ground02_01_0
+  - first:
+      213: -8895830515834730120
+    second: Ground02_01_0
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -98,14 +101,14 @@ TextureImporter:
         width: 32
         height: 32
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 1, y: 0, z: 0, w: 1}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 0cbf8d41e6e159fc0800000000000000
-      internalID: -3488848878183580736
+      spriteID: 87947992749ab8480800000000000000
+      internalID: -8895830515834730120
       vertices: []
       indices: 
       edges: []
