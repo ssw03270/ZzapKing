@@ -12,12 +12,15 @@ public class Player : MonoBehaviour
     private bool isCharged;
 
     Rigidbody2D rigidbody2D;
-
+    Animator animator;
+    
     public Camera cameraPlayer;
+    
     // Start is called before the first frame update
     void Start()
     {
         rigidbody2D = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
 
         direction = 0;
         jumpSpeed = 5f;
@@ -38,15 +41,16 @@ public class Player : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.Space) && !isJumped)
         {
+            animator.SetInteger("State", 1);
             isCharged = true;
             inputTime += Time.deltaTime;
         }
-        if (Input.GetKeyUp(KeyCode.Space) && direction != 0 && !isJumped)
+        if (Input.GetKeyUp(KeyCode.Space))
         {
-            rigidbody2D.AddForce(new Vector2(direction * inputTime * 2, inputTime * jumpSpeed), ForceMode2D.Impulse);
-            Debug.Log(inputTime);
+            animator.SetInteger("State", 0);
+            rigidbody2D.AddForce(new Vector2(direction * inputTime * 2, Mathf.Abs(direction) * inputTime * jumpSpeed), ForceMode2D.Impulse);
             inputTime = 1.5f;
             direction = 0;
             isJumped = true;
@@ -94,9 +98,9 @@ public class Player : MonoBehaviour
             cameraPlayer.transform.position = Vector3.MoveTowards(cameraPlayer.transform.position, targetPosition, Time.deltaTime * 3);
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.name == "Tilemap")
+        if (collision.transform.name == "Tilemap")
         {
             isJumped = false;
         }
