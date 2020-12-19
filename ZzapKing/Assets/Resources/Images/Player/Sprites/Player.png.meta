@@ -32,6 +32,12 @@ TextureImporter:
   - first:
       213: -5055642584004421449
     second: Player 9
+  - first:
+      213: 7564491554212495368
+    second: Player 10
+  - first:
+      213: 5864017059366037389
+    second: Player 11
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -91,7 +97,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 96
+    maxTextureSize: 128
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -183,8 +189,8 @@ TextureImporter:
       name: Player 3
       rect:
         serializedVersion: 2
-        x: 0
-        y: 32
+        x: 96
+        y: 64
         width: 32
         height: 32
       alignment: 7
@@ -204,7 +210,7 @@ TextureImporter:
       name: Player 4
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -225,7 +231,7 @@ TextureImporter:
       name: Player 5
       rect:
         serializedVersion: 2
-        x: 32
+        x: 0
         y: 32
         width: 32
         height: 32
@@ -246,7 +252,7 @@ TextureImporter:
       name: Player 6
       rect:
         serializedVersion: 2
-        x: 64
+        x: 32
         y: 32
         width: 32
         height: 32
@@ -267,8 +273,8 @@ TextureImporter:
       name: Player 7
       rect:
         serializedVersion: 2
-        x: 0
-        y: 0
+        x: 64
+        y: 32
         width: 32
         height: 32
       alignment: 7
@@ -288,8 +294,8 @@ TextureImporter:
       name: Player 8
       rect:
         serializedVersion: 2
-        x: 32
-        y: 0
+        x: 96
+        y: 32
         width: 32
         height: 32
       alignment: 7
@@ -309,7 +315,7 @@ TextureImporter:
       name: Player 9
       rect:
         serializedVersion: 2
-        x: 64
+        x: 0
         y: 0
         width: 32
         height: 32
@@ -322,6 +328,48 @@ TextureImporter:
       bones: []
       spriteID: 7b814151bdfb6d9b0800000000000000
       internalID: -5055642584004421449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player 10
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 800474b7df87af860800000000000000
+      internalID: 7564491554212495368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Player 11
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 32
+        height: 32
+      alignment: 7
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d87e754527c216150800000000000000
+      internalID: 5864017059366037389
       vertices: []
       indices: 
       edges: []
