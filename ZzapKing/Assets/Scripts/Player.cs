@@ -5,7 +5,8 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     private int direction;      // 0 = stay, 1 = right, -1 = left       플레이어의 점프 방향 설정
-    private float jumpSpeed;    // 점프 스피드
+    private float ySpeed;    // 점프 y 스피드
+    private float xSpeed;    // 점프 x 스피드
     private float moveSpeed;
     private float inputTime;    // 플레이어 점프 키 입력 시간
     private bool isJumped;
@@ -23,7 +24,9 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
 
         direction = 0;
-        jumpSpeed = 6f;
+        ySpeed = 6f;
+
+        xSpeed = 8f;
         moveSpeed = 3f;
         inputTime = 1.5f;
         isJumped = true;
@@ -50,7 +53,7 @@ public class Player : MonoBehaviour
         if (Input.GetKeyUp(KeyCode.Space) && !isJumped)
         {
             animator.SetInteger("State", 0);
-            rigidbody2D.AddForce(new Vector2(direction * 9, inputTime * jumpSpeed), ForceMode2D.Impulse);
+            rigidbody2D.AddForce(new Vector2(direction * xSpeed, inputTime * ySpeed), ForceMode2D.Impulse);
             inputTime = 1.5f;
             direction = 0;
             isJumped = true;
